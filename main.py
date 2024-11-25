@@ -15,25 +15,29 @@ def get_red(img):
     return red_img
 
 def get_green(img):
-    red_img = img[:, :, 1]
-    return red_img
+    green_img = img[:, :, 1]
+    return green_img
 
 def get_blue(img):
-    red_img = img[:, :, 0]
-    return red_img
+    blue_img = img[:, :, 0]
+    return blue_img
 
 def generate_file_path(file_path_old, addition):
     # 分离出文件名
-    file_base_name = os.path.basename(file_path) # 包括后缀
-    file_dir = os.path.dirname(file_path) # 文件目录
+    file_base_name = os.path.basename(file_path_old) # 包括后缀
+    file_dir = os.path.dirname(file_path_old) # 文件目录
     file_name, file_ext = os.path.splitext(file_base_name) # 文件名，后缀
-    new_path = file_dir + file_name + addition + file_ext
+    new_path = os.path.join(file_dir, file_name + addition + file_ext)
     return new_path
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     file_path = input("please input the path of the file: ")
-    img = cv2.imread("cat.png")
+    img = cv2.imread(file_path)
+    if img is None:
+        print("Error: Could't load image.")
+        exit()
+
     b, g, r = cv2.split(img)
     # 显示保存前的图像
     cv2.imshow("Blue before", b)
