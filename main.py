@@ -1,6 +1,12 @@
-# reference: https://blog.csdn.net/huanglu_thu13/article/details/52332695
+# =================================
+# the code is based on: https://blog.csdn.net/huanglu_thu13/article/details/52332695
+# the original author's github: https://github.com/hlthu
+#
+# modifications made by me on 2024.11.25
+# here is my github: https://github.com/ennealogos
+# =================================
 
-import numpy
+import numpy as np
 import cv2
 import os
 
